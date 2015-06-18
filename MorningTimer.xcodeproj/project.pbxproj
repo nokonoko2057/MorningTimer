@@ -13,6 +13,7 @@
 		61440D711B31C0A8009A6436 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61440D701B31C0A8009A6436 /* Images.xcassets */; };
 		61440D741B31C0A8009A6436 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61440D721B31C0A8009A6436 /* LaunchScreen.xib */; };
 		61440D801B31C0A8009A6436 /* MorningTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61440D7F1B31C0A8009A6436 /* MorningTimerTests.swift */; };
+		619641DD1B31CBB000BEEC96 /* TimerSet.png in Resources */ = {isa = PBXBuildFile; fileRef = 619641DC1B31CBB000BEEC96 /* TimerSet.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		61440D791B31C0A8009A6436 /* MorningTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MorningTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61440D7E1B31C0A8009A6436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61440D7F1B31C0A8009A6436 /* MorningTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningTimerTests.swift; sourceTree = "<group>"; };
+		619641DC1B31CBB000BEEC96 /* TimerSet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TimerSet.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				61440D691B31C0A8009A6436 /* AppDelegate.swift */,
 				61440D6B1B31C0A8009A6436 /* ViewController.swift */,
 				61440D6D1B31C0A8009A6436 /* Main.storyboard */,
+				619641DC1B31CBB000BEEC96 /* TimerSet.png */,
 				61440D701B31C0A8009A6436 /* Images.xcassets */,
 				61440D721B31C0A8009A6436 /* LaunchScreen.xib */,
 				61440D671B31C0A8009A6436 /* Supporting Files */,
@@ -192,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				619641DD1B31CBB000BEEC96 /* TimerSet.png in Resources */,
 				61440D6F1B31C0A8009A6436 /* Main.storyboard in Resources */,
 				61440D741B31C0A8009A6436 /* LaunchScreen.xib in Resources */,
 				61440D711B31C0A8009A6436 /* Images.xcassets in Resources */,
@@ -409,6 +413,7 @@
 				61440D851B31C0A8009A6436 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		61440D861B31C0A8009A6436 /* Build configuration list for PBXNativeTarget "MorningTimerTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				61440D881B31C0A8009A6436 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
