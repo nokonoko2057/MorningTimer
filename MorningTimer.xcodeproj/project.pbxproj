@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		61440D6A1B31C0A8009A6436 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61440D691B31C0A8009A6436 /* AppDelegate.swift */; };
-		61440D6C1B31C0A8009A6436 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61440D6B1B31C0A8009A6436 /* ViewController.swift */; };
+		61440D6C1B31C0A8009A6436 /* TimerSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61440D6B1B31C0A8009A6436 /* TimerSettingViewController.swift */; };
 		61440D6F1B31C0A8009A6436 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61440D6D1B31C0A8009A6436 /* Main.storyboard */; };
 		61440D711B31C0A8009A6436 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61440D701B31C0A8009A6436 /* Images.xcassets */; };
 		61440D741B31C0A8009A6436 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61440D721B31C0A8009A6436 /* LaunchScreen.xib */; };
 		61440D801B31C0A8009A6436 /* MorningTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61440D7F1B31C0A8009A6436 /* MorningTimerTests.swift */; };
 		619641DD1B31CBB000BEEC96 /* TimerSet.png in Resources */ = {isa = PBXBuildFile; fileRef = 619641DC1B31CBB000BEEC96 /* TimerSet.png */; };
+		619EF8A71B33040B005820B1 /* AlermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619EF8A61B33040B005820B1 /* AlermViewController.swift */; };
+		61FCE94D1B36B52100524620 /* WaitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FCE94C1B36B52100524620 /* WaitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +32,7 @@
 		61440D641B31C0A8009A6436 /* MorningTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MorningTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61440D681B31C0A8009A6436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61440D691B31C0A8009A6436 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		61440D6B1B31C0A8009A6436 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		61440D6B1B31C0A8009A6436 /* TimerSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSettingViewController.swift; sourceTree = "<group>"; };
 		61440D6E1B31C0A8009A6436 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		61440D701B31C0A8009A6436 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		61440D731B31C0A8009A6436 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -38,6 +40,8 @@
 		61440D7E1B31C0A8009A6436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61440D7F1B31C0A8009A6436 /* MorningTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningTimerTests.swift; sourceTree = "<group>"; };
 		619641DC1B31CBB000BEEC96 /* TimerSet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TimerSet.png; sourceTree = "<group>"; };
+		619EF8A61B33040B005820B1 /* AlermViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlermViewController.swift; sourceTree = "<group>"; };
+		61FCE94C1B36B52100524620 /* WaitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +84,10 @@
 			isa = PBXGroup;
 			children = (
 				61440D691B31C0A8009A6436 /* AppDelegate.swift */,
-				61440D6B1B31C0A8009A6436 /* ViewController.swift */,
+				61440D6B1B31C0A8009A6436 /* TimerSettingViewController.swift */,
+				619EF8A61B33040B005820B1 /* AlermViewController.swift */,
 				61440D6D1B31C0A8009A6436 /* Main.storyboard */,
+				61FCE94C1B36B52100524620 /* WaitViewController.swift */,
 				619641DC1B31CBB000BEEC96 /* TimerSet.png */,
 				61440D701B31C0A8009A6436 /* Images.xcassets */,
 				61440D721B31C0A8009A6436 /* LaunchScreen.xib */,
@@ -164,6 +170,11 @@
 				TargetAttributes = {
 					61440D631B31C0A8009A6436 = {
 						CreatedOnToolsVersion = 6.3.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					61440D781B31C0A8009A6436 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -216,8 +227,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61440D6C1B31C0A8009A6436 /* ViewController.swift in Sources */,
+				619EF8A71B33040B005820B1 /* AlermViewController.swift in Sources */,
+				61440D6C1B31C0A8009A6436 /* TimerSettingViewController.swift in Sources */,
 				61440D6A1B31C0A8009A6436 /* AppDelegate.swift in Sources */,
+				61FCE94D1B36B52100524620 /* WaitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

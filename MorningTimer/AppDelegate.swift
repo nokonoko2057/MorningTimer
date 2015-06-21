@@ -13,7 +13,60 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var message:String?
+    var test:Int=0
 
+    var WakeUpTime:[Int]=[0,0,0]
+    var DepartureTime:[Int]=[0,0,0]
+    
+    //var timer:NSTimer!
+    var hour:Int = 0
+    var minute:Int = 0
+    var second:Int = 0
+
+    var flag:Int=0
+    
+    
+    func time() ->String{
+        let myDate: NSDate = NSDate()
+        //カレンダーを取得.
+        let myCalendar: NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        
+        //取得するコンポーネントを決める.
+        let myComponetns = myCalendar.components(/*NSCalendarUnit.CalendarUnitYear   |
+            NSCalendarUnit.CalendarUnitMonth  |
+            NSCalendarUnit.CalendarUnitDay    |*/
+            NSCalendarUnit.CalendarUnitHour   |
+                NSCalendarUnit.CalendarUnitMinute |
+                NSCalendarUnit.CalendarUnitSecond,
+            fromDate: myDate)
+        
+         hour = myComponetns.hour
+         minute = myComponetns.minute
+         second = myComponetns.second
+        
+        var timeString:String = ""
+        if hour<10 {
+            if minute<10{
+                timeString="0"+String(hour)+":0"+String(minute);
+            }else{
+                timeString="0"+String(hour)+":"+String(minute);
+            }
+        }else{
+            if minute<10{
+                timeString=String(hour)+":0"+String(minute);
+            }else{
+                timeString=String(hour)+":"+String(minute);
+            }
+        }
+        
+        return timeString;
+//        TimeLabel.text = timeString
+    }
+
+    
+    
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         return true
@@ -35,6 +88,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+//        timer=NSTimer.scheduledTimerWithTimeInterval(1.0,target: self,
+//                    selector: Selector("time"),
+//                    userInfo: nil,
+//                    repeats: true)
+        
+        
     }
 
     func applicationWillTerminate(application: UIApplication) {

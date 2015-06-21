@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6E2321D6-817B-4509-ADFE-0FC2BF4C7F89</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MorningTimer</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E6AACD8087AC37C875280CA07CF520DC2194F0AE</key>
+		<string>https://github.com/nokonoko2057/MorningTimer.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MorningTimer.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E6AACD8087AC37C875280CA07CF520DC2194F0AE</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/nokonoko2057/MorningTimer.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E6AACD8087AC37C875280CA07CF520DC2194F0AE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E6AACD8087AC37C875280CA07CF520DC2194F0AE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MorningTimer</string>
+		</dict>
+	</array>
+</dict>
+</plist>
