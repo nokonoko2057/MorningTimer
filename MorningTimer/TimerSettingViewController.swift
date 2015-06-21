@@ -178,6 +178,11 @@ class TimerSettingViewController: UIViewController , UIToolbarDelegate ,UITextFi
         var minute:Int = myComponetns.minute
         var second:Int = myComponetns.second
         var timeString:String = ""
+        
+        if x==2 {
+            hour+=1
+        }
+        
         if hour<10 {
             if minute<10{
                 timeString="0"+String(hour)+":0"+String(minute);
