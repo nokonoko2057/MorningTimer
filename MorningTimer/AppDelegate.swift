@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var WakeUpTime:[Int]=[0,0,0]
     var DepartureTime:[Int]=[0,0,0]
+    var RemainingTime:[Int]=[0,0,0]
+    
+    var NowTime:[Int]=[0,0,0]
     
     //var timer:NSTimer!
     var hour:Int = 0
@@ -45,6 +48,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          minute = myComponetns.minute
          second = myComponetns.second
         
+        NowTime[0]=hour;
+        NowTime[1]=minute;
+        NowTime[2]=second;
+        
         var timeString:String = ""
         if hour<10 {
             if minute<10{
@@ -61,7 +68,67 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         return timeString;
-//        TimeLabel.text = timeString
+
+    }
+    
+    func countDown() ->String{
+        
+        
+        for (var i=0;i<3;i++){
+            RemainingTime[i]=DepartureTime[i]-NowTime[i];
+        }
+        
+        if RemainingTime[2]<0 {
+            RemainingTime[2]+=60;
+            RemainingTime[1]-=1;
+        }
+        
+        if RemainingTime[1]<0 {
+            RemainingTime[1]+=60;
+            RemainingTime[0]-=1;
+        }
+        
+        var timeString:String = ""
+        if RemainingTime[0]<10 {
+            
+            if RemainingTime[1]<10{
+                if RemainingTime[2]<10{
+                    timeString="0"+String(RemainingTime[0])+":0"+String(RemainingTime[1])+":0"+String(RemainingTime[2]);
+                }else{
+                    timeString="0"+String(RemainingTime[0])+":0"+String(RemainingTime[1])+":"+String(RemainingTime[2]);
+                }
+                
+            }else{
+                if RemainingTime[2]<10{
+                    timeString="0"+String(RemainingTime[0])+":"+String(RemainingTime[1])+":0"+String(RemainingTime[2]);
+                }else{
+                    timeString="0"+String(RemainingTime[0])+":"+String(RemainingTime[1])+":"+String(RemainingTime[2]);
+                }
+            }
+            
+        }else{
+            
+            if RemainingTime[1]<10{
+                if RemainingTime[2]<10{
+                    timeString=String(RemainingTime[0])+":0"+String(RemainingTime[1])+":0"+String(RemainingTime[2]);
+                }else{
+                    timeString=String(RemainingTime[0])+":0"+String(RemainingTime[1])+":"+String(RemainingTime[2]);
+                }
+
+            }else{
+                if RemainingTime[2]<10{
+                    timeString=String(RemainingTime[0])+":"+String(RemainingTime[1])+":0"+String(RemainingTime[2]);
+                }else{
+                    timeString=String(RemainingTime[0])+":"+String(RemainingTime[1])+":"+String(RemainingTime[2]);
+                }
+            }
+        }
+        
+        return timeString;
+
+        
+        
+        
     }
 
     

@@ -16,6 +16,13 @@
 		619641DD1B31CBB000BEEC96 /* TimerSet.png in Resources */ = {isa = PBXBuildFile; fileRef = 619641DC1B31CBB000BEEC96 /* TimerSet.png */; };
 		619EF8A71B33040B005820B1 /* AlermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619EF8A61B33040B005820B1 /* AlermViewController.swift */; };
 		61FCE94D1B36B52100524620 /* WaitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FCE94C1B36B52100524620 /* WaitViewController.swift */; };
+		61FCE9511B37CE3700524620 /* School Bell Ringing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 61FCE9501B37CE3700524620 /* School Bell Ringing.mp3 */; };
+		61FCE9531B37CE4D00524620 /* アラーム.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 61FCE9521B37CE4D00524620 /* アラーム.mp3 */; };
+		61FCE9551B37CE5C00524620 /* Forest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 61FCE9541B37CE5C00524620 /* Forest.mp3 */; };
+		61FCE9571B37CE7100524620 /* Hard Rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 61FCE9561B37CE7100524620 /* Hard Rain.mp3 */; };
+		61FCE9591B37CE8A00524620 /* Clock Tick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 61FCE9581B37CE8A00524620 /* Clock Tick.mp3 */; };
+		61FCE95B1B37CEB700524620 /* カーン.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 61FCE95A1B37CEB700524620 /* カーン.mp3 */; };
+		61FCE95D1B37E1A000524620 /* CountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FCE95C1B37E1A000524620 /* CountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +49,13 @@
 		619641DC1B31CBB000BEEC96 /* TimerSet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TimerSet.png; sourceTree = "<group>"; };
 		619EF8A61B33040B005820B1 /* AlermViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlermViewController.swift; sourceTree = "<group>"; };
 		61FCE94C1B36B52100524620 /* WaitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitViewController.swift; sourceTree = "<group>"; };
+		61FCE9501B37CE3700524620 /* School Bell Ringing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "School Bell Ringing.mp3"; sourceTree = "<group>"; };
+		61FCE9521B37CE4D00524620 /* アラーム.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "アラーム.mp3"; sourceTree = "<group>"; };
+		61FCE9541B37CE5C00524620 /* Forest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Forest.mp3; sourceTree = "<group>"; };
+		61FCE9561B37CE7100524620 /* Hard Rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Hard Rain.mp3"; sourceTree = "<group>"; };
+		61FCE9581B37CE8A00524620 /* Clock Tick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Clock Tick.mp3"; sourceTree = "<group>"; };
+		61FCE95A1B37CEB700524620 /* カーン.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "カーン.mp3"; sourceTree = "<group>"; };
+		61FCE95C1B37E1A000524620 /* CountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,9 +99,16 @@
 			children = (
 				61440D691B31C0A8009A6436 /* AppDelegate.swift */,
 				61440D6B1B31C0A8009A6436 /* TimerSettingViewController.swift */,
-				619EF8A61B33040B005820B1 /* AlermViewController.swift */,
-				61440D6D1B31C0A8009A6436 /* Main.storyboard */,
 				61FCE94C1B36B52100524620 /* WaitViewController.swift */,
+				619EF8A61B33040B005820B1 /* AlermViewController.swift */,
+				61FCE95C1B37E1A000524620 /* CountViewController.swift */,
+				61440D6D1B31C0A8009A6436 /* Main.storyboard */,
+				61FCE9521B37CE4D00524620 /* アラーム.mp3 */,
+				61FCE9501B37CE3700524620 /* School Bell Ringing.mp3 */,
+				61FCE9541B37CE5C00524620 /* Forest.mp3 */,
+				61FCE9561B37CE7100524620 /* Hard Rain.mp3 */,
+				61FCE9581B37CE8A00524620 /* Clock Tick.mp3 */,
+				61FCE95A1B37CEB700524620 /* カーン.mp3 */,
 				619641DC1B31CBB000BEEC96 /* TimerSet.png */,
 				61440D701B31C0A8009A6436 /* Images.xcassets */,
 				61440D721B31C0A8009A6436 /* LaunchScreen.xib */,
@@ -207,9 +228,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				619641DD1B31CBB000BEEC96 /* TimerSet.png in Resources */,
+				61FCE95B1B37CEB700524620 /* カーン.mp3 in Resources */,
 				61440D6F1B31C0A8009A6436 /* Main.storyboard in Resources */,
 				61440D741B31C0A8009A6436 /* LaunchScreen.xib in Resources */,
+				61FCE9551B37CE5C00524620 /* Forest.mp3 in Resources */,
+				61FCE9591B37CE8A00524620 /* Clock Tick.mp3 in Resources */,
+				61FCE9571B37CE7100524620 /* Hard Rain.mp3 in Resources */,
+				61FCE9511B37CE3700524620 /* School Bell Ringing.mp3 in Resources */,
 				61440D711B31C0A8009A6436 /* Images.xcassets in Resources */,
+				61FCE9531B37CE4D00524620 /* アラーム.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +258,7 @@
 				61440D6C1B31C0A8009A6436 /* TimerSettingViewController.swift in Sources */,
 				61440D6A1B31C0A8009A6436 /* AppDelegate.swift in Sources */,
 				61FCE94D1B36B52100524620 /* WaitViewController.swift in Sources */,
+				61FCE95D1B37E1A000524620 /* CountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

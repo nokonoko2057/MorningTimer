@@ -53,7 +53,10 @@ class WaitViewController: UIViewController {
         
         if(appDelegate.hour==appDelegate.WakeUpTime[0]){
             if(appDelegate.minute==appDelegate.WakeUpTime[1]){
-                appDelegate.flag=1
+                if appDelegate.flag == 0 {
+                    appDelegate.flag=1
+                }
+                
                 timer.invalidate()
                 self.dismissViewControllerAnimated(true, completion: nil)
                 

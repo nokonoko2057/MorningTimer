@@ -19,9 +19,9 @@ class TimerSettingViewController: UIViewController , UIToolbarDelegate ,UITextFi
     var flag:Int=0  //テキストフィールドのflag
     var flag2:Int=0  //時間調整のflag
     
-    
-        //タップ認識
-    @IBOutlet weak var Button1st:UIButton!
+    var timer:NSTimer!
+//        //タップ認識
+//    @IBOutlet weak var Button1st:UIButton!
     
 
     var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
@@ -29,16 +29,21 @@ class TimerSettingViewController: UIViewController , UIToolbarDelegate ,UITextFi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        appDelegate.message = "message" //appDelegateの変数を操作
 
-        let Tap = UITapGestureRecognizer( target: self, action: "tapGesture:")
+//        let Tap = UITapGestureRecognizer( target: self, action: "tapGesture:")
+        
+        timer=NSTimer.scheduledTimerWithTimeInterval(1.0,target: self,
+            selector: Selector("update"),
+            userInfo: nil,
+            repeats: true)
+
 
     // 入力欄の設定=======================================================
         textField.placeholder = changer(NSDate(),x:1)
         textField2.placeholder = textField.text
         
         textField.text        = changer(NSDate(),x:1)
-        textField2.text = changer(NSDate(),x:2)//textField.text
+        textField2.text = changer(NSDate(),x:2)
         
         //Button1st.setTitle(dateToString(NSDate()), forState: UIControlState.Normal)
 
@@ -110,6 +115,7 @@ class TimerSettingViewController: UIViewController , UIToolbarDelegate ,UITextFi
         var dateSelecter: UIDatePicker = sender as! UIDatePicker
         self.changeLabelDate(myDatePicker.date)
         if flag2 != 2 {
+            myDatePicker2.date = myDatePicker.date;
             self.changeLabelDate2(myDatePicker.date)
         }
         
@@ -179,9 +185,9 @@ class TimerSettingViewController: UIViewController , UIToolbarDelegate ,UITextFi
         var second:Int = myComponetns.second
         var timeString:String = ""
         
-        if x==2 {
-            hour+=1
-        }
+//        if x==2 {
+//            hour+=1
+//        }
         
         if hour<10 {
             if minute<10{
@@ -196,6 +202,7 @@ class TimerSettingViewController: UIViewController , UIToolbarDelegate ,UITextFi
                     timeString=String(hour)+":"+String(minute);
                 }
         }
+        
         if x==1 {
             appDelegate.WakeUpTime[0]=hour
             appDelegate.WakeUpTime[1]=minute
@@ -204,6 +211,7 @@ class TimerSettingViewController: UIViewController , UIToolbarDelegate ,UITextFi
             appDelegate.DepartureTime[0]=hour
             appDelegate.DepartureTime[1]=minute
             appDelegate.DepartureTime[2]=second
+            
         }
 //        println("x="+String(x))
 //        for (var i=0;i<3;i++){
@@ -214,6 +222,21 @@ class TimerSettingViewController: UIViewController , UIToolbarDelegate ,UITextFi
         
         return timeString
     }
+    
+    func update(){
+        if appDelegate.flag==1 {
+            let alermViewController: AlermViewController = self.storyboard?.instantiateViewControllerWithIdentifier("AlermVC") as! AlermViewController
+            // アニメーションを設定する.
+            //secondViewController.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
+            // 値渡ししたい時 hoge -> piyo
+            //secondViewController.piyo = self.hoge
+            // Viewの移動する.
+            self.presentViewController(alermViewController, animated: true, completion: nil)
+            appDelegate.flag=2
+        }
+    }
+    
+    
 
 }
 

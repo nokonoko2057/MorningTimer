@@ -83,7 +83,7 @@
                     <connections>
                         <outlet property="textField" destination="FfI-Kc-7WO" id="LiK-8N-WaJ"/>
                         <outlet property="textField2" destination="EtR-xm-wpn" id="SK7-SC-UuM"/>
-                        <segue destination="3Nt-rV-AxL" kind="show" id="Gur-W2-bgD"/>
+                        <segue destination="3Nt-rV-AxL" kind="show" identifier="alerm" id="Gur-W2-bgD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -417,7 +417,7 @@
         <!--AlermViewController-->
         <scene sceneID="B1T-fC-mX8">
             <objects>
-                <viewController title="AlermViewController" id="3Nt-rV-AxL" customClass="AlermViewController" customModule="MorningTimer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AlermVC" title="AlermViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3Nt-rV-AxL" customClass="AlermViewController" customModule="MorningTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TO6-SF-YnY"/>
                         <viewControllerLayoutGuide type="bottom" id="jK0-og-7CE"/>
@@ -438,25 +438,30 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="count" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpc-LB-kZC">
-                                <rect key="frame" x="104" y="303" width="112" height="56"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GWc-5a-Dgc">
                                 <rect key="frame" x="111" y="419" width="99" height="30"/>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="24"/>
                                 <state key="normal" title="OK!!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="WakeUpButton" destination="3Nt-rV-AxL" eventType="touchUpInside" id="ccO-gr-ZT6"/>
+                                    <segue destination="vVL-tj-8uS" kind="show" id="ZeD-KS-GAr"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="count" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpc-LB-kZC">
+                                <rect key="frame" x="60" y="303" width="200" height="56"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="TimeLabel2" destination="ZEz-Od-BAD" id="KDu-yP-1Sa"/>
+                        <outlet property="CountLabelA" destination="Dpc-LB-kZC" id="88Y-iO-WDm"/>
+                        <outlet property="TimeLabelA" destination="ZEz-Od-BAD" id="pac-nr-0QC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nNe-HU-Vk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -466,7 +471,7 @@
         <!--CountViewController-->
         <scene sceneID="m1w-X0-sIl">
             <objects>
-                <viewController title="CountViewController" id="vVL-tj-8uS" sceneMemberID="viewController">
+                <viewController title="CountViewController" id="vVL-tj-8uS" customClass="CountViewController" customModule="MorningTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c0e-gi-bdE"/>
                         <viewControllerLayoutGuide type="bottom" id="Ecs-WW-pVn"/>
@@ -506,10 +511,30 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ku2-3r-3GM">
+                                <rect key="frame" x="178" y="521" width="22" height="22"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xw8-xB-65p">
+                                <rect key="frame" x="65" y="520" width="22" height="22"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="CountLabelC" destination="rUs-48-pTB" id="Odo-IS-wVb"/>
+                        <outlet property="TimeLabelC" destination="QOw-PE-yMK" id="0k0-Ww-5Sv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yeu-GV-dF3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

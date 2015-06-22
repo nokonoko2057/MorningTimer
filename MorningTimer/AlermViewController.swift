@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import AVFoundation
 
-class AlermViewController: UIViewController {
+class AlermViewController: UIViewController ,AVAudioPlayerDelegate{
 
     var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
     var timer:NSTimer!
+    var audioPlayer:AVAudioPlayer!
+
     
 
-    @IBOutlet var TimeLabel2:UILabel!
+    @IBOutlet var TimeLabelA:UILabel!
+    @IBOutlet var CountLabelA:UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +29,24 @@ class AlermViewController: UIViewController {
             selector: Selector("update"),
             userInfo: nil,
             repeats: true)
+        
+        let soundFilePath : NSString = NSBundle.mainBundle().pathForResource("School Bell Ringing", ofType: "mp3")!
+        let fileURL : NSURL = NSURL(fileURLWithPath: soundFilePath as String)!
+        
+        var soundCount:Int=30
+        
+        //AVAudioPlayerのインスタンス化
+        audioPlayer = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
+        
+        audioPlayer.numberOfLoops = soundCount
+        audioPlayer.play()
+        audioPlayer.volume = 1.0
+
+        var alert = UIAlertView()
+        alert.title = "起床時間!"
+        alert.message = "おはようございます。起床時間です"
+        alert.addButtonWithTitle("OK")
+        alert.show()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,16 +56,23 @@ class AlermViewController: UIViewController {
     
 
     func update(){
-        TimeLabel2.text = appDelegate.time();
+        TimeLabelA.text = appDelegate.time();
+        CountLabelA.text = appDelegate.countDown();
         
-        if(appDelegate.hour==appDelegate.WakeUpTime[0]){
-            if(appDelegate.minute==appDelegate.WakeUpTime[1]){
-                appDelegate.flag=1
-                timer.invalidate()
-                self.dismissViewControllerAnimated(true, completion: nil)
-                
-            }
-        }
+//
+//        if(appDelegate.hour==appDelegate.WakeUpTime[0]){
+//            if(appDelegate.minute==appDelegate.WakeUpTime[1]){
+//                if appDelegate.flag==
+//                //appDelegate.flag=1
+//                timer.invalidate()
+//                self.dismissViewControllerAnimated(true, completion: nil)
+//                
+//            }
+//        }
+    }
+    
+    @IBAction func WakeUpButton() {
+        audioPlayer.stop()
     }
 
     
