@@ -12,7 +12,6 @@ class TimerSettingViewController: UIViewController , UIToolbarDelegate ,UITextFi
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textField2: UITextField!
-    //textField: UITextField!
     var toolBar:UIToolbar!
     var myDatePicker: UIDatePicker!
     var myDatePicker2: UIDatePicker!
@@ -20,17 +19,12 @@ class TimerSettingViewController: UIViewController , UIToolbarDelegate ,UITextFi
     var flag2:Int=0  //時間調整のflag
     
     var timer:NSTimer!
-//        //タップ認識
-//    @IBOutlet weak var Button1st:UIButton!
-    
 
     var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        let Tap = UITapGestureRecognizer( target: self, action: "tapGesture:")
         
         timer=NSTimer.scheduledTimerWithTimeInterval(1.0,target: self,
             selector: Selector("update"),
@@ -42,16 +36,10 @@ class TimerSettingViewController: UIViewController , UIToolbarDelegate ,UITextFi
         textField.placeholder = changer(NSDate(),x:1)
         textField2.placeholder = textField.text
         
-        textField.text        = changer(NSDate(),x:1)
+        textField.text = changer(NSDate(),x:1)
         textField2.text = changer(NSDate(),x:2)
         
-        //Button1st.setTitle(dateToString(NSDate()), forState: UIControlState.Normal)
-
-        //textField.sizeToFit()
-        //self.view.addSubview(textField)
-        //self.view.addSubview(Button1st)
-        
-        // UIDatePickerの設定
+    // UIDatePickerの設定=================================================
         myDatePicker = UIDatePicker()
         myDatePicker.addTarget(self, action: "changedDateEvent:", forControlEvents: UIControlEvents.ValueChanged)
         myDatePicker.datePickerMode = UIDatePickerMode.Time
@@ -64,15 +52,14 @@ class TimerSettingViewController: UIViewController , UIToolbarDelegate ,UITextFi
         textField.inputView = myDatePicker
         textField2.inputView = myDatePicker2
         
-        // UIToolBarの設定
+    // UIToolBarの設定=================================================
         toolBar = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height/6, self.view.frame.size.width, 40.0))
         toolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
         toolBar.barStyle = .BlackTranslucent
         toolBar.tintColor = UIColor.whiteColor()
         toolBar.backgroundColor = UIColor.blackColor()
-        
         let toolBarBtn      = UIBarButtonItem(title: "完了", style: .Bordered, target: self, action: "tappedToolBarBtn:")
-        let toolBarBtnToday = UIBarButtonItem(title: "now", style: .Bordered, target: self, action: "tappedToolBarBtnToday:")
+        let toolBarBtnToday = UIBarButtonItem(title: "現在", style: .Bordered, target: self, action: "tappedToolBarBtnToday:")
         
         toolBarBtn.tag = 1
         toolBar.items = [toolBarBtn, toolBarBtnToday]
@@ -81,23 +68,17 @@ class TimerSettingViewController: UIViewController , UIToolbarDelegate ,UITextFi
         textField2.inputAccessoryView = toolBar
     }
     
-     func tapGesture(sender: UITapGestureRecognizer){//背景タップでキーボード閉じる
-       textField.resignFirstResponder()
-       textField2.resignFirstResponder()
-    }
-
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    // 「完了」を押すと閉じる
+    // 「完了」を押すと閉じる=================================================
     func tappedToolBarBtn(sender: UIBarButtonItem) {
         textField.resignFirstResponder()
         textField2.resignFirstResponder()
     }
     
-    // 「now」を押すと今の時間をセットする
+    // 「現在」を押すと今の時間をセットする=================================================
     func tappedToolBarBtnToday(sender: UIBarButtonItem) {
         if flag==1 {
             myDatePicker.date = NSDate()
@@ -109,7 +90,7 @@ class TimerSettingViewController: UIViewController , UIToolbarDelegate ,UITextFi
         
         
     }
-    
+    // 時間の変更　=================================================
     func changedDateEvent(sender:AnyObject?){
         flag=1;
         var dateSelecter: UIDatePicker = sender as! UIDatePicker
@@ -167,7 +148,7 @@ class TimerSettingViewController: UIViewController , UIToolbarDelegate ,UITextFi
         return date_formatter.stringFromDate(date)
     }*/
 
-
+    // 時間の取得、出力=================================================
     func changer(date:NSDate,x:Int) ->String {
         let myCalendar: NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         
@@ -184,7 +165,7 @@ class TimerSettingViewController: UIViewController , UIToolbarDelegate ,UITextFi
         var minute:Int = myComponetns.minute
         var second:Int = myComponetns.second
         var timeString:String = ""
-        
+//        
 //        if x==2 {
 //            hour+=1
 //        }
@@ -203,6 +184,9 @@ class TimerSettingViewController: UIViewController , UIToolbarDelegate ,UITextFi
                 }
         }
         
+       
+
+        
         if x==1 {
             appDelegate.WakeUpTime[0]=hour
             appDelegate.WakeUpTime[1]=minute
@@ -213,18 +197,14 @@ class TimerSettingViewController: UIViewController , UIToolbarDelegate ,UITextFi
             appDelegate.DepartureTime[2]=second
             
         }
-//        println("x="+String(x))
-//        for (var i=0;i<3;i++){
-//            println("W:"+String(i)+"="+String(appDelegate.WakeUpTime[i]))
-//        }
         
-        appDelegate.time()
+       // appDelegate.time()
         
         return timeString
     }
     
     func update(){
-        if appDelegate.flag==1 {
+        if appDelegate.alermFlag==1 {
             let alermViewController: AlermViewController = self.storyboard?.instantiateViewControllerWithIdentifier("AlermVC") as! AlermViewController
             // アニメーションを設定する.
             //secondViewController.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
@@ -232,8 +212,29 @@ class TimerSettingViewController: UIViewController , UIToolbarDelegate ,UITextFi
             //secondViewController.piyo = self.hoge
             // Viewの移動する.
             self.presentViewController(alermViewController, animated: true, completion: nil)
-            appDelegate.flag=2
+            appDelegate.alermFlag=2
         }
+    }
+    
+    @IBAction func check(){
+        if appDelegate.WakeUpTime[0] == appDelegate.DepartureTime[0] && appDelegate.WakeUpTime[1] == appDelegate.DepartureTime[1]{
+            
+            let alert = UIAlertView()
+            alert.title = "error!"
+            alert.message = "起床時間と出発時間が同じです"
+            alert.addButtonWithTitle("OK")
+            alert.show()
+
+        }else{
+            let waitViewControlle: WaitViewController = self.storyboard?.instantiateViewControllerWithIdentifier("WaitVC") as! WaitViewController
+            // アニメーションを設定する.
+            //mySecondViewController.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
+            
+            // Viewの移動する.
+            self.presentViewController(waitViewControlle, animated: true, completion: nil)
+
+        }
+
     }
     
     

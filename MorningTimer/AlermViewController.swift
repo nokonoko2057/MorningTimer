@@ -24,6 +24,23 @@ class AlermViewController: UIViewController ,AVAudioPlayerDelegate{
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    
+        var topColor = appDelegate.colorchanger()
+        var bottomColor = appDelegate.colorchanger()
+        //UIColor(red: 0.0, green: 0.7, blue: 1.0, alpha: 1.0)
+        //appDelegate.UIColorFromRGB(0x007fff)
+        
+        //グラデーションの色を配列で管理
+        var gradientColors: [CGColor] = [topColor.CGColor, bottomColor.CGColor]
+        //グラデーションレイヤーを作成
+        var gradientLayer: CAGradientLayer = CAGradientLayer()
+        //グラデーションの色をレイヤーに割り当てる
+        gradientLayer.colors = gradientColors
+        //グラデーションレイヤーをスクリーンサイズにする
+        gradientLayer.frame = self.view.bounds
+        //グラデーションレイヤーをビューの一番下に配置
+        self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
+        
         
         timer=NSTimer.scheduledTimerWithTimeInterval(1.0,target: self,
             selector: Selector("update"),
@@ -42,7 +59,7 @@ class AlermViewController: UIViewController ,AVAudioPlayerDelegate{
         audioPlayer.play()
         audioPlayer.volume = 1.0
 
-        var alert = UIAlertView()
+        let alert = UIAlertView()
         alert.title = "起床時間!"
         alert.message = "おはようございます。起床時間です"
         alert.addButtonWithTitle("OK")
@@ -73,6 +90,8 @@ class AlermViewController: UIViewController ,AVAudioPlayerDelegate{
     
     @IBAction func WakeUpButton() {
         audioPlayer.stop()
+        //timerを破棄する.
+        timer.invalidate();
     }
 
     

@@ -30,8 +30,8 @@ class CountViewController: UIViewController,AVAudioPlayerDelegate {
             userInfo: nil,
             repeats: true)
         
-        let soundFilePath : NSString = NSBundle.mainBundle().pathForResource("Forest", ofType: "mp3")!
-        let fileURL : NSURL = NSURL(fileURLWithPath: soundFilePath as String)!
+        var soundFilePath : NSString = NSBundle.mainBundle().pathForResource("Forest", ofType: "mp3")!
+        var fileURL : NSURL = NSURL(fileURLWithPath: soundFilePath as String)!
         var soundCount:Int=0
         
         //AVAudioPlayerのインスタンス化
@@ -41,6 +41,21 @@ class CountViewController: UIViewController,AVAudioPlayerDelegate {
         audioPlayerC.play()
         audioPlayerC.volume = 1.0
 
+        var topColor = appDelegate.colorchanger()
+        var bottomColor = appDelegate.colorchanger()
+        //UIColor(red: 0.0, green: 0.7, blue: 1.0, alpha: 1.0)
+        //appDelegate.UIColorFromRGB(0x007fff)
+        
+        //グラデーションの色を配列で管理
+        var gradientColors: [CGColor] = [topColor.CGColor, bottomColor.CGColor]
+        //グラデーションレイヤーを作成
+        var gradientLayer: CAGradientLayer = CAGradientLayer()
+        //グラデーションの色をレイヤーに割り当てる
+        gradientLayer.colors = gradientColors
+        //グラデーションレイヤーをスクリーンサイズにする
+        gradientLayer.frame = self.view.bounds
+        //グラデーションレイヤーをビューの一番下に配置
+        self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,11 +65,38 @@ class CountViewController: UIViewController,AVAudioPlayerDelegate {
     
     func update(){
         TimeLabelC.text = appDelegate.time();
-        CountLabelC.text = appDelegate.countDown();
+        if appDelegate.countFlag == 0 {
+            self.CountLabelC.text = self.appDelegate.countDown();
+        }else{
+            self.CountLabelC.text = self.appDelegate.countUp();
+            self.CountLabelC.textColor = UIColor.redColor();
+        }
+        
         count++;
         if count==10 {
             audioPlayerC.stop();
         }
+        
+        if appDelegate.RemainingTime[1] % 5 == 0 {
+            if appDelegate.RemainingTime[2] == 0 {
+//                var soundFilePath : NSString = NSBundle.mainBundle().pathForResource("アラーム", ofType: "mp3")!
+//                var fileURL : NSURL = NSURL(fileURLWithPath: soundFilePath as String)!
+//                var soundCount:Int=0
+//                
+//                //AVAudioPlayerのインスタンス化
+//                audioPlayerC = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
+//                
+                audioPlayerC.play()
+                audioPlayerC.volume = 1.0
+                
+                count=0;
+
+            }
+        }
+        
+        
+        
+        
     }
 
 

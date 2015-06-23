@@ -27,9 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var minute:Int = 0
     var second:Int = 0
 
-    var flag:Int=0
+    var alermFlag:Int=0
+    var countFlag:Int=0
     
-    
+    //現在時刻の取得
     func time() ->String{
         let myDate: NSDate = NSDate()
         //カレンダーを取得.
@@ -53,39 +54,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NowTime[2]=second;
         
         var timeString:String = ""
-        if hour<10 {
-            if minute<10{
-                timeString="0"+String(hour)+":0"+String(minute);
-            }else{
-                timeString="0"+String(hour)+":"+String(minute);
-            }
-        }else{
-            if minute<10{
-                timeString=String(hour)+":0"+String(minute);
-            }else{
-                timeString=String(hour)+":"+String(minute);
-            }
-        }
+//        if hour<10 {
+//            if minute<10{
+//                timeString="0"+String(hour)+":0"+String(minute);
+//            }else{
+//                timeString="0"+String(hour)+":"+String(minute);
+//            }
+//        }else{
+//            if minute<10{
+//                timeString=String(hour)+":0"+String(minute);
+//            }else{
+//                timeString=String(hour)+":"+String(minute);
+//            }
+//        }
         
-        return timeString;
+         timeString=String(hour)+":"+String(minute)+":"+String(second);
 
+        return timeString;
     }
     
+    //カウントダウン関数
     func countDown() ->String{
-        
-        
         for (var i=0;i<3;i++){
             RemainingTime[i]=DepartureTime[i]-NowTime[i];
         }
         
-        if RemainingTime[2]<0 {
-            RemainingTime[2]+=60;
-            RemainingTime[1]-=1;
+        if RemainingTime[2]==0 {
+            if RemainingTime[1]==0{
+                if RemainingTime[0]==0{
+                    countFlag=1;
+                }
+            }
         }
         
-        if RemainingTime[1]<0 {
-            RemainingTime[1]+=60;
-            RemainingTime[0]-=1;
+        if countFlag != 1 {
+            if RemainingTime[2]<0 {
+                RemainingTime[2]+=60;
+                RemainingTime[1]-=1;
+            }
+            
+            if RemainingTime[1]<0 {
+                RemainingTime[1]+=60;
+                RemainingTime[0]-=1;
+            }
+
         }
         
         var timeString:String = ""
@@ -124,13 +136,90 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        println("countdown")
+        
         return timeString;
+        
+    }
+    
+    func countUp() ->String{
+        
+        RemainingTime[2]+=1;
 
+        if RemainingTime[2]==60 {
+            RemainingTime[2]-=60;
+            RemainingTime[1]+=1;
+        }
         
+        if RemainingTime[1]==60 {
+            RemainingTime[1]-=60;
+            RemainingTime[0]+=1
+        }
         
+        var timeString:String = ""
+        if RemainingTime[0]<10 {
+            
+            if RemainingTime[1]<10{
+                if RemainingTime[2]<10{
+                    timeString="0"+String(RemainingTime[0])+":0"+String(RemainingTime[1])+":0"+String(RemainingTime[2]);
+                }else{
+                    timeString="0"+String(RemainingTime[0])+":0"+String(RemainingTime[1])+":"+String(RemainingTime[2]);
+                }
+                
+            }else{
+                if RemainingTime[2]<10{
+                    timeString="0"+String(RemainingTime[0])+":"+String(RemainingTime[1])+":0"+String(RemainingTime[2]);
+                }else{
+                    timeString="0"+String(RemainingTime[0])+":"+String(RemainingTime[1])+":"+String(RemainingTime[2]);
+                }
+            }
+            
+        }else{
+            
+            if RemainingTime[1]<10{
+                if RemainingTime[2]<10{
+                    timeString=String(RemainingTime[0])+":0"+String(RemainingTime[1])+":0"+String(RemainingTime[2]);
+                }else{
+                    timeString=String(RemainingTime[0])+":0"+String(RemainingTime[1])+":"+String(RemainingTime[2]);
+                }
+                
+            }else{
+                if RemainingTime[2]<10{
+                    timeString=String(RemainingTime[0])+":"+String(RemainingTime[1])+":0"+String(RemainingTime[2]);
+                }else{
+                    timeString=String(RemainingTime[0])+":"+String(RemainingTime[1])+":"+String(RemainingTime[2]);
+                }
+            }
+        }
+        
+        println("countUp")
+        return timeString;
         
     }
 
+    
+
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+    
+    func colorchanger() -> UIColor {
+        var randInt=[0,0,0]
+        var colorDouble:[CGFloat]=[0.0,0.0,0.0]
+
+        for (var i=0;i<2;i++){
+            randInt[i] = Int(arc4random_uniform(230))
+            colorDouble[i] = CGFloat(randInt[i])/255.0
+        }
+        colorDouble[2]=CGFloat(1.0);
+        
+        return UIColor(red:colorDouble[0],green:colorDouble[1],blue:colorDouble[2],alpha:CGFloat(1.0));
+    }
     
     
     

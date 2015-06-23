@@ -13,48 +13,30 @@ class WaitViewController: UIViewController {
     @IBOutlet weak var TimeLabel: UILabel!
     var timer:NSTimer!
     var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //TimeLabel.text = dateToString(NSDate())
-        // Do any additional setup after loading the view.
         
         timer=NSTimer.scheduledTimerWithTimeInterval(1.0,target: self,
-            selector: Selector("update"),
-            userInfo: nil,
-           repeats: true)
-
+            selector: Selector("update"),userInfo: nil,repeats: true)
     }
 
-        override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     @IBAction func back(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-
-
-//    func dateToString(date:NSDate) ->String {
-//        
-//        var date_formatter: NSDateFormatter = NSDateFormatter()
-//        
-//        
-//        date_formatter.locale     = NSLocale(localeIdentifier: "ja")
-//        date_formatter.dateFormat="HH:mm"
-//        return date_formatter.stringFromDate(date)
-//    }
     
     func update(){
         TimeLabel.text = appDelegate.time();
         
         if(appDelegate.hour==appDelegate.WakeUpTime[0]){
             if(appDelegate.minute==appDelegate.WakeUpTime[1]){
-                if appDelegate.flag == 0 {
-                    appDelegate.flag=1
+                if appDelegate.alermFlag == 0 {
+                    appDelegate.alermFlag=1
                 }
                 
                 timer.invalidate()
