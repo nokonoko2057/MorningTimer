@@ -184,21 +184,15 @@ class TimerSettingViewController: UIViewController , UIToolbarDelegate ,UITextFi
                 }
         }
         
-       
-
-        
         if x==1 {
             appDelegate.WakeUpTime[0]=hour
             appDelegate.WakeUpTime[1]=minute
-            appDelegate.WakeUpTime[2]=second
+            appDelegate.WakeUpTime[2]=0
         }else if x==2 {
             appDelegate.DepartureTime[0]=hour
             appDelegate.DepartureTime[1]=minute
-            appDelegate.DepartureTime[2]=second
-            
+            appDelegate.DepartureTime[2]=0
         }
-        
-       // appDelegate.time()
         
         return timeString
     }

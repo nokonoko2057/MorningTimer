@@ -43,6 +43,9 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="hJT-QM-exE" kind="show" id="7GR-WP-yXx"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="出発時間" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZnU-83-jib">
                                 <rect key="frame" x="102" y="186" width="117" height="31"/>
@@ -83,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-183" y="320"/>
+            <point key="canvasLocation" x="-222" y="320"/>
         </scene>
         <!--SettingViewController-->
         <scene sceneID="DTE-9K-udz">
@@ -284,7 +287,7 @@
         <!--InformationViewController-->
         <scene sceneID="dQH-cu-hX0">
             <objects>
-                <viewController title="InformationViewController" id="hJT-QM-exE" sceneMemberID="viewController">
+                <viewController title="InformationViewController" id="hJT-QM-exE" customClass="InformationViewController" customModule="MorningTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oos-zk-WIV"/>
                         <viewControllerLayoutGuide type="bottom" id="iog-6d-svq"/>

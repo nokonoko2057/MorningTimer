@@ -136,8 +136,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        println("countdown")
-        
         return timeString;
         
     }
