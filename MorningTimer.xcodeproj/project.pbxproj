@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		61081D7E1B3C255200ADAFF8 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61081D7D1B3C255200ADAFF8 /* InformationViewController.swift */; };
+		61081D801B3C46A600ADAFF8 /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61081D7F1B3C46A600ADAFF8 /* json.swift */; };
 		61440D6A1B31C0A8009A6436 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61440D691B31C0A8009A6436 /* AppDelegate.swift */; };
 		61440D6C1B31C0A8009A6436 /* TimerSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61440D6B1B31C0A8009A6436 /* TimerSettingViewController.swift */; };
 		61440D6F1B31C0A8009A6436 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61440D6D1B31C0A8009A6436 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		61081D7D1B3C255200ADAFF8 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
+		61081D7F1B3C46A600ADAFF8 /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
 		61440D641B31C0A8009A6436 /* MorningTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MorningTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61440D681B31C0A8009A6436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61440D691B31C0A8009A6436 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				61FCE95C1B37E1A000524620 /* CountViewController.swift */,
 				61081D7D1B3C255200ADAFF8 /* InformationViewController.swift */,
 				61440D6D1B31C0A8009A6436 /* Main.storyboard */,
+				61081D7F1B3C46A600ADAFF8 /* json.swift */,
 				61FCE9521B37CE4D00524620 /* アラーム.mp3 */,
 				61FCE9501B37CE3700524620 /* School Bell Ringing.mp3 */,
 				61FCE9541B37CE5C00524620 /* Forest.mp3 */,
@@ -260,6 +263,7 @@
 				619EF8A71B33040B005820B1 /* AlermViewController.swift in Sources */,
 				61440D6C1B31C0A8009A6436 /* TimerSettingViewController.swift in Sources */,
 				61440D6A1B31C0A8009A6436 /* AppDelegate.swift in Sources */,
+				61081D801B3C46A600ADAFF8 /* json.swift in Sources */,
 				61FCE94D1B36B52100524620 /* WaitViewController.swift in Sources */,
 				61FCE95D1B37E1A000524620 /* CountViewController.swift in Sources */,
 				61081D7E1B3C255200ADAFF8 /* InformationViewController.swift in Sources */,
