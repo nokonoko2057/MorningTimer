@@ -11,10 +11,11 @@
 		61081D801B3C46A600ADAFF8 /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61081D7F1B3C46A600ADAFF8 /* json.swift */; };
 		61440D6A1B31C0A8009A6436 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61440D691B31C0A8009A6436 /* AppDelegate.swift */; };
 		61440D6C1B31C0A8009A6436 /* TimerSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61440D6B1B31C0A8009A6436 /* TimerSettingViewController.swift */; };
-		61440D6F1B31C0A8009A6436 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61440D6D1B31C0A8009A6436 /* Main.storyboard */; };
 		61440D711B31C0A8009A6436 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61440D701B31C0A8009A6436 /* Images.xcassets */; };
 		61440D741B31C0A8009A6436 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61440D721B31C0A8009A6436 /* LaunchScreen.xib */; };
 		61440D801B31C0A8009A6436 /* MorningTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61440D7F1B31C0A8009A6436 /* MorningTimerTests.swift */; };
+		615F59C81B3D26AA00380FDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 615F59C71B3D26AA00380FDE /* Main.storyboard */; };
+		615F59CA1B3D3BB500380FDE /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615F59C91B3D3BB500380FDE /* FinishViewController.swift */; };
 		619641DD1B31CBB000BEEC96 /* TimerSet.png in Resources */ = {isa = PBXBuildFile; fileRef = 619641DC1B31CBB000BEEC96 /* TimerSet.png */; };
 		619EF8A71B33040B005820B1 /* AlermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619EF8A61B33040B005820B1 /* AlermViewController.swift */; };
 		61FCE94D1B36B52100524620 /* WaitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FCE94C1B36B52100524620 /* WaitViewController.swift */; };
@@ -44,12 +45,13 @@
 		61440D681B31C0A8009A6436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61440D691B31C0A8009A6436 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61440D6B1B31C0A8009A6436 /* TimerSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSettingViewController.swift; sourceTree = "<group>"; };
-		61440D6E1B31C0A8009A6436 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		61440D701B31C0A8009A6436 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		61440D731B31C0A8009A6436 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		61440D791B31C0A8009A6436 /* MorningTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MorningTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61440D7E1B31C0A8009A6436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61440D7F1B31C0A8009A6436 /* MorningTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningTimerTests.swift; sourceTree = "<group>"; };
+		615F59C71B3D26AA00380FDE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		615F59C91B3D3BB500380FDE /* FinishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
 		619641DC1B31CBB000BEEC96 /* TimerSet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TimerSet.png; sourceTree = "<group>"; };
 		619EF8A61B33040B005820B1 /* AlermViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlermViewController.swift; sourceTree = "<group>"; };
 		61FCE94C1B36B52100524620 /* WaitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitViewController.swift; sourceTree = "<group>"; };
@@ -107,7 +109,8 @@
 				619EF8A61B33040B005820B1 /* AlermViewController.swift */,
 				61FCE95C1B37E1A000524620 /* CountViewController.swift */,
 				61081D7D1B3C255200ADAFF8 /* InformationViewController.swift */,
-				61440D6D1B31C0A8009A6436 /* Main.storyboard */,
+				615F59C91B3D3BB500380FDE /* FinishViewController.swift */,
+				615F59C71B3D26AA00380FDE /* Main.storyboard */,
 				61081D7F1B3C46A600ADAFF8 /* json.swift */,
 				61FCE9521B37CE4D00524620 /* アラーム.mp3 */,
 				61FCE9501B37CE3700524620 /* School Bell Ringing.mp3 */,
@@ -234,8 +237,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				619641DD1B31CBB000BEEC96 /* TimerSet.png in Resources */,
+				615F59C81B3D26AA00380FDE /* Main.storyboard in Resources */,
 				61FCE95B1B37CEB700524620 /* カーン.mp3 in Resources */,
-				61440D6F1B31C0A8009A6436 /* Main.storyboard in Resources */,
 				61440D741B31C0A8009A6436 /* LaunchScreen.xib in Resources */,
 				61FCE9551B37CE5C00524620 /* Forest.mp3 in Resources */,
 				61FCE9591B37CE8A00524620 /* Clock Tick.mp3 in Resources */,
@@ -265,6 +268,7 @@
 				61440D6A1B31C0A8009A6436 /* AppDelegate.swift in Sources */,
 				61081D801B3C46A600ADAFF8 /* json.swift in Sources */,
 				61FCE94D1B36B52100524620 /* WaitViewController.swift in Sources */,
+				615F59CA1B3D3BB500380FDE /* FinishViewController.swift in Sources */,
 				61FCE95D1B37E1A000524620 /* CountViewController.swift in Sources */,
 				61081D7E1B3C255200ADAFF8 /* InformationViewController.swift in Sources */,
 			);
@@ -289,14 +293,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		61440D6D1B31C0A8009A6436 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				61440D6E1B31C0A8009A6436 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		61440D721B31C0A8009A6436 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

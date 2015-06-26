@@ -10,24 +10,39 @@ import UIKit
 
 class InformationViewController: UIViewController {
     
-   
-    let sectionNum = 1      // セクションの数
-    let cellNum = 10        // 1セクションあたりのセルの行数
+   var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
     // 取得するAPI
-    let urlString =  "api.openweathermap.org/data/2.5/forecast/daily?q=Tokyo,jp&units=metric&cnt=1"
-    var cellItems = NSMutableArray()    // セルの中身
-    var isInLoad = false            // ロード中かどうか
-    var selectedRow: Int?       // 選択されたセルの列番号
+    let urlString =  "http://api.openweathermap.org/data/2.5/forecast/daily?q=Tokyo,jp&units=metric&cnt=1"
+   var isInLoad = false            // ロード中かどうか
+
     
     @IBOutlet var label:UILabel!
+    @IBOutlet var place:UILabel!
+    @IBOutlet var tempMaxL:UILabel!
+    @IBOutlet var tempMinL:UILabel!
+    @IBOutlet var IconIV:UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        makeTableData()
-        label.text=self.cellItems[0] as? String
-     //   println(self.cellItems[0] as! String)
+        var topColor = appDelegate.colorchanger()
+        var bottomColor = appDelegate.colorchanger()
+        //UIColor(red: 0.0, green: 0.7, blue: 1.0, alpha: 1.0)
+        //appDelegate.UIColorFromRGB(0x007fff)
+        
+        //グラデーションの色を配列で管理
+        var gradientColors: [CGColor] = [topColor.CGColor, bottomColor.CGColor]
+        //グラデーションレイヤーを作成
+        var gradientLayer: CAGradientLayer = CAGradientLayer()
+        //グラデーションの色をレイヤーに割り当てる
+        gradientLayer.colors = gradientColors
+        //グラデーションレイヤーをスクリーンサイズにする
+        gradientLayer.frame = self.view.bounds
+        //グラデーションレイヤーをビューの一番下に配置
+        self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
+        
+        WeatherData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,7 +51,11 @@ class InformationViewController: UIViewController {
     }
     
 
-    func makeTableData() {
+    @IBAction func back(){
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func WeatherData() {
         self.isInLoad = true
         var url = NSURL(string: self.urlString)!
         var task = NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: {data, response, error in
@@ -44,35 +63,51 @@ class InformationViewController: UIViewController {
             var json = JSON(data: data)
          
             // 各セルに情報を突っ込む
-          //  for var i = 0; i < self.cellNum; i++ {
-
             var i=0
            // var dt_txt = json["list"][i]["weather"][0]["dt_txt"]
-//            var weatherMain = json["list"][i]["weather"][0]["main"]
+            var weatherMain = json["list"][i]["weather"][0]["main"]
             var weatherDescription = json["list"][i]["weather"][0]["description"]
-//            var weatherDescription2 = json["list"][i]["weather"][0]["icon"]
-//            var dt0 = json["list"][i]["dt"]
-//            var temp = json["list"][i]["main"]["temp"]
-//            
-//            var tempMin = json["list"][0]["temp"]["min"]
+            var weatherIcon = json["list"][i]["weather"][0]["icon"]
+            var tempMin = json["list"][0]["temp"]["min"]
+            var tempMax = json["list"][0]["temp"]["max"]
+            var cityName = json["city"]["name"]
+
+            var iconName = "http://openweathermap.org/img/w/"+"\(weatherIcon)"+".png"
+            var image0 = UIImage(named: iconName)
             
-            var xxx = json["message"]
-//            var tempMax = json["main"]["temp_max"]
-//
-            println("\(xxx),");
-            var info = "\(xxx), \(weatherDescription), "
-                self.cellItems[i] = info
-           // }
+            var url = NSURL(string:iconName)
+            var req = NSURLRequest(URL:url!)
+            
+            NSURLConnection.sendAsynchronousRequest(req, queue:NSOperationQueue.mainQueue()){(res, data, err) in
+                var image = UIImage(data:data)
+                // 画像に対する処理 (UcellのUIImageViewに表示する等)
+                self.IconIV.image = image
+                
+            }
+
+            //self.IconIV.image = image0
+
+          
+            var box:Double = atof("\(tempMax)")
+            var box2:Int = Int(box)
+            var tempMaxS:String = String(box2)
+            var box3:Double = atof("\(tempMin)")
+            var box4:Int = Int(box3)
+            var tempMinS:String = String(box4)
+
+            
+            self.place.text = "\(cityName)"
+            self.tempMaxL.text="\(tempMaxS)"
+            self.tempMinL.text = "\(tempMinS)"
+            
+            var info = "\(weatherMain), \(weatherDescription),\(weatherIcon), \(tempMax),\(tempMin), \(cityName), "
+            println("\(info),");
             // ロードが完了したので、falseに
             self.isInLoad = false
         })
         task.resume()
         
         // 読み込みが終わるまで待機
-        // (ゆる募)
-        // 下の解決策以外に何か方法があればと。。。
-        // jsonの取得に非同期通信を使ってるので、読み込むまで待ってからじゃないと
-        // cellに値が入らない。同期通信使えって話もあるけど今後の拡張を考えてNSURLSession使ってます(^_^;)
         while isInLoad {
             usleep(10)
         }

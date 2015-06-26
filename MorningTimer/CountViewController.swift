@@ -94,9 +94,11 @@ class CountViewController: UIViewController,AVAudioPlayerDelegate {
             }
         }
         
-        
-        
-        
+    }
+
+    @IBAction func next(){
+        audioPlayerC.stop()
+        timer.invalidate();  //timerを破棄する.
     }
 
 

@@ -29,7 +29,6 @@ class AlermViewController: UIViewController ,AVAudioPlayerDelegate{
         var bottomColor = appDelegate.colorchanger()
         //UIColor(red: 0.0, green: 0.7, blue: 1.0, alpha: 1.0)
         //appDelegate.UIColorFromRGB(0x007fff)
-        
         //グラデーションの色を配列で管理
         var gradientColors: [CGColor] = [topColor.CGColor, bottomColor.CGColor]
         //グラデーションレイヤーを作成
