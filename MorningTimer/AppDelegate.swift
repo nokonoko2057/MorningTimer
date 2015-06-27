@@ -54,21 +54,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NowTime[2]=second;
         
         var timeString:String = ""
-//        if hour<10 {
-//            if minute<10{
-//                timeString="0"+String(hour)+":0"+String(minute);
-//            }else{
-//                timeString="0"+String(hour)+":"+String(minute);
-//            }
-//        }else{
-//            if minute<10{
-//                timeString=String(hour)+":0"+String(minute);
-//            }else{
-//                timeString=String(hour)+":"+String(minute);
-//            }
-//        }
+        if hour<10 {
+            if minute<10{
+                timeString="0"+String(hour)+":0"+String(minute);
+            }else{
+                timeString="0"+String(hour)+":"+String(minute);
+            }
+        }else{
+            if minute<10{
+                timeString=String(hour)+":0"+String(minute);
+            }else{
+                timeString=String(hour)+":"+String(minute);
+            }
+        }
         
-         timeString=String(hour)+":"+String(minute)+":"+String(second);
+//         timeString=String(hour)+":"+String(minute)+":"+String(second);
 
         return timeString;
     }
