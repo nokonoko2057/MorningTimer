@@ -29,6 +29,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var alermFlag:Int=0
     var countFlag:Int=0
+    var settingFlag:Int=0;
+    
+    //曜日ごとの時刻セット
+    var setWeekTag:Int=0;
+    var setWeekTimer = [[[Int]]](count:7,repeatedValue:[[Int]](count:2, repeatedValue:[Int](count: 3, repeatedValue: 0)))
+    //setWeekTimer = [曜日 0:月曜...6:日曜 [0:起床,1:出発 [時刻 0:時 1:分 2:秒]]]
+
+    
+    
     
     //現在時刻の取得
     func time() ->String{

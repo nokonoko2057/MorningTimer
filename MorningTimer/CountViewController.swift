@@ -26,14 +26,14 @@ class CountViewController: UIViewController,AVAudioPlayerDelegate {
 
         // Do any additional setup after loading the view.
         
-        let infoViewController: InformationViewController = self.storyboard?.instantiateViewControllerWithIdentifier("InfoVC") as! InformationViewController
-        // アニメーションを設定する.
-        //secondViewController.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
-        // 値渡ししたい時 hoge -> piyo
-        //secondViewController.piyo = self.hoge
-        // Viewの移動する.
-        self.presentViewController(infoViewController, animated: true, completion: nil)
-        
+//        let infoViewController: InformationViewController = self.storyboard?.instantiateViewControllerWithIdentifier("infoVC") as! InformationViewController
+//        // アニメーションを設定する.
+//        //secondViewController.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
+//        // 値渡ししたい時 hoge -> piyo
+//        //secondViewController.piyo = self.hoge
+//        // Viewの移動する.
+//        self.presentViewController(infoViewController, animated: true, completion: nil)
+//        
 
         
         timer=NSTimer.scheduledTimerWithTimeInterval(1.0,target: self,

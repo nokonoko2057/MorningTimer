@@ -16,7 +16,7 @@ class InformationViewController: UIViewController {
    var isInLoad = false            // ロード中かどうか
 
     
-    @IBOutlet var label:UILabel!
+  //  @IBOutlet var label:UILabel!
     @IBOutlet var place:UILabel!
     @IBOutlet var tempMaxL:UILabel!
     @IBOutlet var tempMinL:UILabel!
