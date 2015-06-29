@@ -25,7 +25,7 @@ class TimerSettingViewController: UIViewController , UIToolbarDelegate ,UITextFi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        appDelegate.dataImport()
         timer=NSTimer.scheduledTimerWithTimeInterval(1.0,target: self,
             selector: Selector("update"),
             userInfo: nil,

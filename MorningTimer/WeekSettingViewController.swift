@@ -175,8 +175,10 @@ class WeekSettingViewController: UIViewController {
             alert.addButtonWithTitle("OK")
             alert.show()
         }else{
-            self.dismissViewControllerAnimated(true, completion: nil)
+            appDelegate.dataSave();
             appDelegate.settingFlag=1;
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
         }
         
     }

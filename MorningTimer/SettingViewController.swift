@@ -23,74 +23,84 @@ class SettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        var i:Int=0;
 
         // Do any additional setup after loading the view.
         timer=NSTimer.scheduledTimerWithTimeInterval(1.0,target: self,
             selector: Selector("update"),
             userInfo: nil,
             repeats: true)
-
+        
+        appDelegate.dataImport()
+        appDelegate.setWeekTag = 1;
+         var ButtonText:String = ""
+        for (i=1;i<8;i++){
+           
+            ButtonText = appDelegate.chageButtonText()
+            switch (i) {
+            case 1:
+                Button1.setTitle(ButtonText, forState: .Normal)
+                break;
+            case 2:
+                Button2.setTitle(ButtonText, forState: .Normal)
+                break;
+            case 3:
+                Button3.setTitle(ButtonText, forState: .Normal)
+                break;
+            case 4:
+                Button4.setTitle(ButtonText, forState: .Normal)
+                break;
+            case 5:
+                Button5.setTitle(ButtonText, forState: .Normal)
+                break;
+            case 6:
+                Button6.setTitle(ButtonText, forState: .Normal)
+                break;
+            case 7:
+                Button7.setTitle(ButtonText, forState: .Normal)
+                break;
+            default:
+                break;
+                
+            }
+            appDelegate.setWeekTag += 1;
+        }
+        
+        
     }
     
     func update(){
-        var StringTime:String=""
-        var StringTime1:String=""
-        var StringTime2:String=""
-        var tagFlag:Int=0
+//        var StringTime:String=""
+//        var StringTime1:String=""
+//        var StringTime2:String=""
+//        var tagFlag:Int=0
+        var ButtonText:String = ""
         if appDelegate.settingFlag == 1 {
-            tagFlag = appDelegate.setWeekTag-1
+            ButtonText = appDelegate.chageButtonText()
             switch (appDelegate.setWeekTag) {
-                case 1:
-                    StringTime1 = StringChanger(appDelegate.setWeekTimer[tagFlag][0][0],minute: appDelegate.setWeekTimer[tagFlag][0][1])
-                    StringTime2 = StringChanger(appDelegate.setWeekTimer[tagFlag][1][0],minute: appDelegate.setWeekTimer[tagFlag][1][1])
-                    StringTime =  StringTime1+"→"+StringTime2;
-                    Button1.setTitle(StringTime, forState: .Normal)
-                    break;
-                
-                case 2 :
-                    StringTime1 = StringChanger(appDelegate.setWeekTimer[tagFlag][0][0],minute: appDelegate.setWeekTimer[tagFlag][0][1])
-                    StringTime2 = StringChanger(appDelegate.setWeekTimer[tagFlag][1][0],minute: appDelegate.setWeekTimer[tagFlag][1][1])
-                    StringTime =  StringTime1+"→"+StringTime2;
-                    Button2.setTitle(StringTime, forState: .Normal)
-                    break;
-                
-                case 3 :
-                    StringTime1 = StringChanger(appDelegate.setWeekTimer[tagFlag][0][0],minute: appDelegate.setWeekTimer[tagFlag][0][1])
-                    StringTime2 = StringChanger(appDelegate.setWeekTimer[tagFlag][1][0],minute:appDelegate.setWeekTimer[tagFlag][1][1])
-                    StringTime =  StringTime1+"→"+StringTime2;
-                    Button3.setTitle(StringTime, forState: .Normal)
-                    break;
-                
-                case 4 :
-                    StringTime1 = StringChanger(appDelegate.setWeekTimer[tagFlag][0][0],minute: appDelegate.setWeekTimer[tagFlag][0][1])
-                    StringTime2 = StringChanger(appDelegate.setWeekTimer[tagFlag][1][0],minute:appDelegate.setWeekTimer[tagFlag][1][1])
-                    StringTime =  StringTime1+"→"+StringTime2;
-                    Button4.setTitle(StringTime, forState: .Normal)
-                    break;
-                
-                case 5 :
-                    StringTime1 = StringChanger(appDelegate.setWeekTimer[tagFlag][0][0],minute: appDelegate.setWeekTimer[tagFlag][0][1])
-                    StringTime2 = StringChanger(appDelegate.setWeekTimer[tagFlag][1][0],minute:appDelegate.setWeekTimer[tagFlag][1][1])
-                    StringTime =  StringTime1+"→"+StringTime2;
-                    Button5.setTitle(StringTime, forState: .Normal)
-                    break;
-                
-                case 6 :
-                    StringTime1 = StringChanger(appDelegate.setWeekTimer[tagFlag][0][0],minute: appDelegate.setWeekTimer[tagFlag][0][1])
-                    StringTime2 = StringChanger(appDelegate.setWeekTimer[tagFlag][1][0],minute:appDelegate.setWeekTimer[tagFlag][1][1])
-                    StringTime =  StringTime1+"→"+StringTime2;
-                    Button6.setTitle(StringTime, forState: .Normal)
-                    break;
-                
-                case 7 :
-                    StringTime1 = StringChanger(appDelegate.setWeekTimer[tagFlag][0][0],minute: appDelegate.setWeekTimer[tagFlag][0][1])
-                    StringTime2 = StringChanger(appDelegate.setWeekTimer[tagFlag][1][0],minute:appDelegate.setWeekTimer[tagFlag][1][1])
-                    StringTime =  StringTime1+"→"+StringTime2;
-                    Button7.setTitle(StringTime, forState: .Normal)
-                    break;
-                
-                default:
-                    break;
+            case 1:
+                Button1.setTitle(ButtonText, forState: .Normal)
+                break;
+            case 2:
+                Button2.setTitle(ButtonText, forState: .Normal)
+                break;
+            case 3:
+                Button3.setTitle(ButtonText, forState: .Normal)
+                break;
+            case 4:
+                Button4.setTitle(ButtonText, forState: .Normal)
+                break;
+            case 5:
+                Button5.setTitle(ButtonText, forState: .Normal)
+                break;
+            case 6:
+                Button6.setTitle(ButtonText, forState: .Normal)
+                break;
+            case 7:
+                Button7.setTitle(ButtonText, forState: .Normal)
+                break;
+            default:
+                break;
                 
             }
         }
@@ -114,23 +124,8 @@ class SettingViewController: UIViewController {
 
     }
 
-    func StringChanger(hour:Int,minute:Int) ->String{
-        var timeString:String = ""
-        if hour<10 {
-            if minute<10{
-                timeString="0"+String(hour)+":0"+String(minute);
-            }else{
-                timeString="0"+String(hour)+":"+String(minute);
-            }
-        }else{
-            if minute<10{
-                timeString=String(hour)+":0"+String(minute);
-            }else{
-                timeString=String(hour)+":"+String(minute);
-            }
-        }
-        return timeString;
-
+    @IBAction func back(){
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     /*
     // MARK: - Navigation

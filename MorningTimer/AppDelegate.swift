@@ -42,9 +42,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //現在時刻の取得
     func time() ->String{
         let myDate: NSDate = NSDate()
+        println(myDate)
         //カレンダーを取得.
         let myCalendar: NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        
+        println(myCalendar)
         //取得するコンポーネントを決める.
         let myComponetns = myCalendar.components(/*NSCalendarUnit.CalendarUnitYear   |
             NSCalendarUnit.CalendarUnitMonth  |
@@ -228,7 +229,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UIColor(red:colorDouble[0],green:colorDouble[1],blue:colorDouble[2],alpha:CGFloat(1.0));
     }
     
+    func dataSave(){
+        NSUserDefaults.standardUserDefaults().setObject(setWeekTimer, forKey:"nknk");
+        NSUserDefaults.standardUserDefaults().synchronize();
+    }
     
+    func dataImport(){
+        
+        if((NSUserDefaults.standardUserDefaults().objectForKey("nknk")) != nil){
+            if var setWeekTimer2 = NSUserDefaults.standardUserDefaults().objectForKey("nknk") as? [[[Int]]]{
+                setWeekTimer = setWeekTimer2 ;
+                println(setWeekTimer[0][0][0]);
+            }
+        }
+    }
+    
+    func chageButtonText() ->String{
+        var StringTime:String=""
+        var StringTime1:String=""
+        var StringTime2:String=""
+        var tagFlag:Int=0
+        
+            tagFlag = setWeekTag-1
+            StringTime1 = StringChanger(setWeekTimer[tagFlag][0][0],minute: setWeekTimer[tagFlag][0][1])
+            StringTime2 = StringChanger(setWeekTimer[tagFlag][1][0],minute: setWeekTimer[tagFlag][1][1])
+            StringTime =  StringTime1+"→"+StringTime2;
+
+        return StringTime;
+    }
+    
+    func StringChanger(hour:Int,minute:Int) ->String{
+        var timeString:String = ""
+        if hour<10 {
+            if minute<10{
+                timeString="0"+String(hour)+":0"+String(minute);
+            }else{
+                timeString="0"+String(hour)+":"+String(minute);
+            }
+        }else{
+            if minute<10{
+                timeString=String(hour)+":0"+String(minute);
+            }else{
+                timeString=String(hour)+":"+String(minute);
+            }
+        }
+        return timeString;
+        
+    }
+
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.

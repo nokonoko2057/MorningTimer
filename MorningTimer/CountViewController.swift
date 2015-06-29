@@ -87,7 +87,7 @@ class CountViewController: UIViewController,AVAudioPlayerDelegate {
         if count==10 {
             audioPlayerC.stop();
         }
-        if appDelegate.RemainingTime[1]==10{
+        if appDelegate.RemainingTime[1] <= 10{
             soundFlag=1
         }
         if soundFlag == 0 {
