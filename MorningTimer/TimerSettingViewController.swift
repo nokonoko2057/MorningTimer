@@ -30,8 +30,7 @@ class TimerSettingViewController: UIViewController , UIToolbarDelegate ,UITextFi
             selector: Selector("update"),
             userInfo: nil,
             repeats: true)
-
-
+        
     // 入力欄の設定=======================================================
         textField.placeholder = changer(NSDate(),x:1)
         textField2.placeholder = textField.text
@@ -198,6 +197,8 @@ class TimerSettingViewController: UIViewController , UIToolbarDelegate ,UITextFi
     }
     
     func update(){
+        
+        
         if appDelegate.alermFlag==1 {
             let alermViewController: AlermViewController = self.storyboard?.instantiateViewControllerWithIdentifier("AlermVC") as! AlermViewController
             // アニメーションを設定する.

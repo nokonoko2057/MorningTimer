@@ -28,6 +28,20 @@ class WeekSettingViewController: UIViewController {
         super.viewDidLoad()
         
         
+        var topColor = appDelegate.colorchanger()
+        var bottomColor = appDelegate.colorchanger()
+        //UIColor(red: 0.0, green: 0.7, blue: 1.0, alpha: 1.0)
+        //appDelegate.UIColorFromRGB(0x007fff)
+        //グラデーションの色を配列で管理
+        var gradientColors: [CGColor] = [topColor.CGColor, bottomColor.CGColor]
+        //グラデーションレイヤーを作成
+        var gradientLayer: CAGradientLayer = CAGradientLayer()
+        //グラデーションの色をレイヤーに割り当てる
+        gradientLayer.colors = gradientColors
+        //グラデーションレイヤーをスクリーンサイズにする
+        gradientLayer.frame = self.view.bounds
+        //グラデーションレイヤーをビューの一番下に配置
+        self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
         // 入力欄の設定=======================================================
         textField.placeholder = changer(NSDate(),x:1)
         textField2.placeholder = textField.text
@@ -150,14 +164,14 @@ class WeekSettingViewController: UIViewController {
         }
         
         if x==1 {
-            appDelegate.setWeekTimer[appDelegate.setWeekTag-1][0][0]=hour
-            appDelegate.setWeekTimer[appDelegate.setWeekTag-1][0][1]=minute
-            appDelegate.setWeekTimer[appDelegate.setWeekTag-1][0][2]=0
+            appDelegate.setWeekTimer[appDelegate.setWeekTag][0][0]=hour
+            appDelegate.setWeekTimer[appDelegate.setWeekTag][0][1]=minute
+            appDelegate.setWeekTimer[appDelegate.setWeekTag][0][2]=0
             
         }else if x==2 {
-            appDelegate.setWeekTimer[appDelegate.setWeekTag-1][1][0]=hour
-            appDelegate.setWeekTimer[appDelegate.setWeekTag-1][1][1]=minute
-            appDelegate.setWeekTimer[appDelegate.setWeekTag-1][1][2]=0
+            appDelegate.setWeekTimer[appDelegate.setWeekTag][1][0]=hour
+            appDelegate.setWeekTimer[appDelegate.setWeekTag][1][1]=minute
+            appDelegate.setWeekTimer[appDelegate.setWeekTag][1][2]=0
 
         }
         
@@ -167,7 +181,7 @@ class WeekSettingViewController: UIViewController {
 
     
     @IBAction func check(){
-        var box = appDelegate.setWeekTag-1;
+        var box = appDelegate.setWeekTag;
         if appDelegate.setWeekTimer[box][0][0] == appDelegate.setWeekTimer[box][1][0] && appDelegate.setWeekTimer[box][0][1] == appDelegate.setWeekTimer[box][1][1] {
             let alert = UIAlertView()
             alert.title = "error!"

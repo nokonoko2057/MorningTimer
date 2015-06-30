@@ -32,9 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var settingFlag:Int=0;
     
     //曜日ごとの時刻セット
-    var setWeekTag:Int=0;
-    var setWeekTimer = [[[Int]]](count:7,repeatedValue:[[Int]](count:2, repeatedValue:[Int](count: 3, repeatedValue: 0)))
-    //setWeekTimer = [曜日 0:月曜...6:日曜 [0:起床,1:出発 [時刻 0:時 1:分 2:秒]]]
+    var setWeekTag:Int=1;
+    var setWeekTimer = [[[Int]]](count:8,repeatedValue:[[Int]](count:2, repeatedValue:[Int](count: 3, repeatedValue: 0)))
+    //setWeekTimer = [曜日 1:月曜...7:日曜 [0:起床,1:出発 [時刻 0:時 1:分 2:秒]]]
 
     
     
@@ -52,12 +52,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSCalendarUnit.CalendarUnitDay    |*/
             NSCalendarUnit.CalendarUnitHour   |
                 NSCalendarUnit.CalendarUnitMinute |
-                NSCalendarUnit.CalendarUnitSecond,
+                NSCalendarUnit.CalendarUnitSecond|NSCalendarUnit.CalendarUnitWeekday,
             fromDate: myDate)
         
          hour = myComponetns.hour
          minute = myComponetns.minute
          second = myComponetns.second
+//        println(myComponetns.weekday)
         
         NowTime[0]=hour;
         NowTime[1]=minute;
@@ -248,11 +249,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var StringTime:String=""
         var StringTime1:String=""
         var StringTime2:String=""
-        var tagFlag:Int=0
+       // var tagFlag:Int=0
         
-            tagFlag = setWeekTag-1
-            StringTime1 = StringChanger(setWeekTimer[tagFlag][0][0],minute: setWeekTimer[tagFlag][0][1])
-            StringTime2 = StringChanger(setWeekTimer[tagFlag][1][0],minute: setWeekTimer[tagFlag][1][1])
+            //tagFlag = setWeekTag-1
+            StringTime1 = StringChanger(setWeekTimer[setWeekTag][0][0],minute: setWeekTimer[setWeekTag][0][1])
+            StringTime2 = StringChanger(setWeekTimer[setWeekTag][1][0],minute: setWeekTimer[setWeekTag][1][1])
             StringTime =  StringTime1+"→"+StringTime2;
 
         return StringTime;
